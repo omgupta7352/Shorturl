@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShortURL</title>
+    <link rel="stylesheet" type="text/css" th:href="@{css/styles.css}">
+</head>
+
+<body>
+    <nav>
+        <div class="logo">Short<sub>U</sub>RL</div>
+        <input type="checkbox" id="click">
+        <label for="click" class="menu-btn">
+            <i class="fas fa-bars"></i>
+        </label>
+    </nav>
+    <section>
+        <div class="content">
+            <div class="con">
+                <div class="contain">
+                    <div class="tail"></div>
+                    <span class="z-1">Z</span>
+                    <span class="z-2">Z</span>
+                    <span class="z-3">Z</span>
+                    <div class="rabbit-body">
+                        <div class="face-container">
+                            <div class="rabbit-face">
+                                <div class="ear"></div>
+                                <div class="eye-l"></div>
+                                <div class="eye-r"></div>
+                                <div class="mouth"></div>
+                            </div>
+                        </div>
+                        <div class="leaf"></div>
+                        <div class="carrot"></div>
+                        <div class="hand-l"></div>
+                        <div class="hand-r"></div>
+                    </div>
+                    <div class="shadow"></div>
+                </div>
+            </div>
+            <div class="con">
+                <div class="container">
+                    <h1>Short Your URL</h1>
+                    <form action="/generate" method="post">
+                        <label for="url">
+                            <h4>Enter Original URL:</h4>
+                        </label>
+                        <input type="text" id="url-input" name="url" required>
+                        <button type="submit" id="shorten-btn">Shorten Link</button>
+                    </form>
+                    <div id="result" class="result" th:if="${shortUrl != null}">
+                        <h4>Short URL:</h4>
+                        <p id="shortUrl" th:text="${shortUrl}"><a></a></p>
+                        
+                         <h6>* This Link will expire in 24hr</h6>
+                    </div>
+                    <div id="error" th:if="${error != null}">
+                        <h2>Error:</h2>
+                        <p id="errorMsg" th:text="${error}"></p>
+                    </div>
+                </div>
+            </div>
+            </div>
+    </section>
+</body>
+
+</html>
